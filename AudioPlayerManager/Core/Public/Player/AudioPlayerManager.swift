@@ -118,7 +118,13 @@ open class AudioPlayerManager: NSObject {
 	}
 
 	open func play(updateNowPlayingInfo: Bool = false) {
-		self.player.play()
+		if #available(iOS 10.0, *) {
+		     self.player.playImmediately(atRate: 1.0)
+		     self.player.automaticallyWaitsToMinimizeStalling = false
+		} else {
+		     self.player.play()
+		}
+		
 		if (updateNowPlayingInfo == true || self.didStopPlayback == true) {
 			self.updateNowPlayingInfoIfNeeded()
 		}
