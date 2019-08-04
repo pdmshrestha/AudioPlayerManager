@@ -263,8 +263,7 @@ open class AudioPlayerManager: NSObject {
 
 	// MARK: - Internal helper
 
-	@objc
-	open func trackDidFinishPlaying() {
+	@objc open func trackDidFinishPlaying() {
 		self.forward()
 	}
 
@@ -429,8 +428,7 @@ open class AudioPlayerManager: NSObject {
 
 	// MARK: - Plaback time change callback
 
-	@objc
-	func callPlaybackTimeChangeCallbacks() {
+	@objc func callPlaybackTimeChangeCallbacks() {
 		self.updateNowPlayingInfoIfNeeded()
 		// Increase the current tracks playing time if the player is playing
 		if let currentTrack = self.currentTrack {
