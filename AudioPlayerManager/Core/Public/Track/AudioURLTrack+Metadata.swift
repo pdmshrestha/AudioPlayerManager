@@ -36,10 +36,10 @@ extension AudioURLTrack {
 		for metadataItem in items {
 			if let key = metadataItem.commonKey {
 				switch key {
-				case .commonKeyTitle		: info[MPMediaItemPropertyTitle] = metadataItem.stringValue as NSObject?
-				case .commonKeyAlbumName	: info[MPMediaItemPropertyAlbumTitle] = metadataItem.stringValue as NSObject?
-				case .commonKeyArtist		: info[MPMediaItemPropertyArtist] = metadataItem.stringValue as NSObject?
-				case .commonKeyArtwork		: info[MPMediaItemPropertyArtwork] = self.mediaItemArtwork(from: metadataItem.dataValue)
+				case AVMetadataKey.commonKeyTitle		: info[MPMediaItemPropertyTitle] = metadataItem.stringValue as NSObject?
+				case AVMetadataKey.commonKeyAlbumName	: info[MPMediaItemPropertyAlbumTitle] = metadataItem.stringValue as NSObject?
+				case AVMetadataKey.commonKeyArtist		: info[MPMediaItemPropertyArtist] = metadataItem.stringValue as NSObject?
+				case AVMetadataKey.commonKeyArtwork		: info[MPMediaItemPropertyArtwork] = self.mediaItemArtwork(from: metadataItem.dataValue)
 				default								: continue
 				}
 			}
